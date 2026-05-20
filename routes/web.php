@@ -8,6 +8,9 @@ use Inertia\Inertia;
 // });
 
 Route::get('/', function () {
-    return Inertia::render('HomePage',);
+    return Inertia::render('HomePage', [
+        'name' => 'John Doe',
+        'email' => 'john@me.com', 
+    ]);
 });
 
