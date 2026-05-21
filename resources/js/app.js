@@ -11,4 +11,5 @@ createInertiaApp({
             .use(plugin)
             .mount(el)
     },
+    title: (title) => `${title} - ${import.meta.env.VITE_APP_NAME}`,
 })

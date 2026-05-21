@@ -10,7 +10,8 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('HomePage', [
         'name' => 'John Doe',
-        'email' => 'john@me.com', 
+        'email' => 'john@me.com',
+        'title' => 'Home Page', 
     ]);
 });
 
