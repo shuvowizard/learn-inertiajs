@@ -12,6 +12,7 @@ Route::get('/', function () {
         'name' => 'John Doe',
         'email' => 'john@me.com',
         'title' => 'Home Page', 
+        'time' => now()->toDateTimeString(),
     ]);
 });
 
