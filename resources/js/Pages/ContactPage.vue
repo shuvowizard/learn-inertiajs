@@ -1,9 +1,14 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
-import Navbar from "../Components/Navbar.vue";
+import UserLayout from "../Layouts/UserLayout.vue";
+
 defineProps({
     title: String,
 });
+
+defineOptions({
+    layout: UserLayout,
+})
 </script>
 
 <template>
@@ -11,8 +16,6 @@ defineProps({
         <title>{{ title }}</title>
         <meta head-key="description" name="description" content="This is the default description for the contact page." />
     </Head>
-
-    <Navbar />
 
     <div class="container mx-auto p-4 text-center">
         <h1 class="text-3xl font-bold">Contact Page</h1>
