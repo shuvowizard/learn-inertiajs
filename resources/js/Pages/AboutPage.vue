@@ -1,14 +1,9 @@
 <script setup>
 import { Head } from "@inertiajs/vue3";
-import UserLayout from "../Layouts/UserLayout.vue";
 
 defineProps({
     title: String,
 });
-
-defineOptions({
-    layout: UserLayout,
-})
 </script>
 
 <template>

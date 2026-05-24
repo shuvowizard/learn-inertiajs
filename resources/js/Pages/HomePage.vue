@@ -1,6 +1,5 @@
 <script setup>
 import { Head, Link } from "@inertiajs/vue3";
-import UserLayout from "../Layouts/UserLayout.vue";
 
 defineProps({
     name: String,
@@ -8,10 +7,6 @@ defineProps({
     title: String,
     time: String,
 });
-
-defineOptions({
-    layout: UserLayout,
-})
 </script>
 
 <template>
