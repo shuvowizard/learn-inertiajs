@@ -7,8 +7,7 @@ defineProps({
 </script>
 
 <template>
-    <Head>
-        <title>{{ title }}</title>
+    <Head>   
         <meta head-key="description" name="description" content="This is the default description for the about page." />
     </Head>
 
