@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,6 +14,18 @@ Route::get('/', function () {
         'email' => 'john@me.com',
         'title' => 'Home Page', 
         'time' => now()->toDateTimeString(),
+    ]);
+});
+
+Route::get('/user', function () {
+    return Inertia::render('Users/UserPage',[
+        'users' => User::all()->map(function ($user) {
+            return [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+            ];
+        }),
     ]);
 });
 

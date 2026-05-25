@@ -19,6 +19,7 @@ const user = computed(() => {
             </Link>
             <div>
                 <NavLink href="/" :active="$page.url === '/'">Home</NavLink>
+                <NavLink href="/user" :active="$page.url === '/user'">User</NavLink>
                 <NavLink href="/about" :active="$page.url === '/about'">About</NavLink>
                 <NavLink href="/contact" :active="$page.url === '/contact'">Contact</NavLink>
                 <Link href="/logout" method="post" as="button" :data="{ foo: 'bar' }" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</Link>
