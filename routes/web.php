@@ -18,14 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/user', function () {
-    return Inertia::render('Users/UserPage',[
-        'users' => User::all()->map(function ($user) {
-            return [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-            ];
-        }),
+    return Inertia::render('Users/UserPage', [
+        'users' => User::query()->paginate(5),
     ]);
 });
 

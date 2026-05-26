@@ -1,6 +1,8 @@
 <script setup>
+import Pagination from '@/Components/Pagination.vue'
+
 defineProps({
-    users: Array
+    users: Object
 })
 </script>
 
@@ -39,10 +41,10 @@ defineProps({
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                     <!-- Row 1 -->
-                    <tr v-for="user in users" :key="user.id" class="hover:bg-gray-50 transition-colors">
+                    <tr v-for="user in users.data" :key="user.id" class="hover:bg-gray-50 transition-colors">
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 h-10 w-10">
+                                <div class="shrink-0 h-10 w-10">
                                     <div class="h-10 w-10 rounded-full bg-indigo-500 flex items-center justify-center text-white font-medium">
                                         {{ user.name.charAt(0).toUpperCase()}}
                                     </div>
@@ -69,7 +71,8 @@ defineProps({
                 </tbody>
             </table>
         </div>
-  </div>
+    </div>
 
+    <Pagination :links="users.links" :users="users" />
 
 </template>
