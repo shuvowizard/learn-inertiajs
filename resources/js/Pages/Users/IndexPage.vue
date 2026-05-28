@@ -12,7 +12,7 @@ const props = defineProps({
 const search = ref(props.filters?.search || '')
 
 watch(search, debounce(function (value) {
-    router.get('/user', { search: value }, {
+    router.get('/users', { search: value }, {
         preserveState: true, 
         replace: true
     })

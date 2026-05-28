@@ -17,8 +17,8 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/user', function () {
-    return Inertia::render('Users/UserPage', [
+Route::get('/users', function () {
+    return Inertia::render('Users/IndexPage', [
         'users' => User::query()
             ->when(request('search'), fn ($query, $search) => $query->where('name', 'like', "%{$search}%"))
             ->paginate(5)
