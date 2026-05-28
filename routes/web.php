@@ -32,6 +32,10 @@ Route::get('/users', function () {
     ]);
 });
 
+Route::get('/users/create', function () {
+    return Inertia::render('Users/CreatePage');
+});
+
 # For simple pages without controller logic:
 // Route::inertia('/about', 'About');
 

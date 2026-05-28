@@ -17,4 +17,7 @@ createInertiaApp({
             .mount(el)
     },
     title: (title) => `${title} - ${import.meta.env.VITE_APP_NAME}`,
+    progress: {
+        color: '#4B5563',
+    },
 })
