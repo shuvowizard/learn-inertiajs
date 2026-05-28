@@ -11,11 +11,11 @@ const user = computed(() => {
 </script>
 
 <template>
-    <nav class="bg-gray-800 p-4">
+    <nav class="bg-indigo-600 p-4">
         <div class="container mx-auto flex items-center justify-between">
             <Link href="/" class="text-white text-lg font-bold">
                 MyApp
-                <span class="text-sm text-gray-300 ml-7">Welcome Back, {{ user.username }}!</span>
+                <span class="text-sm text-white ml-7">Welcome Back, {{ user.username }}!</span>
             </Link>
             <div>
                 <NavLink href="/" :active="$page.url === '/'">Home</NavLink>
