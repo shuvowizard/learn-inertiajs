@@ -36,6 +36,25 @@ Route::get('/users/create', function () {
     return Inertia::render('Users/CreatePage');
 });
 
+Route::post('/users', function () {
+    // Validate and create the user
+    $attributes = request()->validate([
+        'name' => 'required',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:6',
+    ]);
+
+    // User::create([
+    //     'name' => request('name'),
+    //     'email' => request('email'),
+    //     'password' => bcrypt(request('password')),
+    // ]);
+
+    User::create($attributes);
+
+    return redirect('/users');
+});
+
 # For simple pages without controller logic:
 // Route::inertia('/about', 'About');
 
