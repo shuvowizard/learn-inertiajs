@@ -55,6 +55,12 @@ Route::post('/users', function () {
     return redirect('/users');
 });
 
+Route::get('/users/{user}/edit', function (User $user) {
+    return inertia('Users/EditPage', [
+        'user' => $user,
+    ]);
+});
+
 # For simple pages without controller logic:
 // Route::inertia('/about', 'About');
 
