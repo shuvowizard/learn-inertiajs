@@ -61,6 +61,25 @@ Route::get('/users/{user}/edit', function (User $user) {
     ]);
 });
 
+Route::put('/users/{user}', function (User $user) {
+    // Validate and update the user
+    $attributes = request()->validate([
+        'name' => ['required'],
+        'email' => ['required', 'email', 'unique:users,email,' . $user->id],
+        'password' => ['nullable', 'min:6'],
+    ]);
+
+    if ($attributes['password']) {
+        $attributes['password'] = bcrypt($attributes['password']);
+    } else {
+        unset($attributes['password']);
+    }
+
+    $user->update($attributes);
+
+    return redirect('/users');
+});
+
 # For simple pages without controller logic:
 // Route::inertia('/about', 'About');
 
