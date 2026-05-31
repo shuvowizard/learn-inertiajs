@@ -80,6 +80,13 @@ Route::put('/users/{user}', function (User $user) {
     return redirect('/users');
 });
 
+Route::delete('/users/{id}', function ($id) {
+    $user = User::findOrFail($id);
+    $user->delete();
+    
+    return redirect()->back();
+});
+
 # For simple pages without controller logic:
 // Route::inertia('/about', 'About');
 

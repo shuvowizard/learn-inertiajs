@@ -13,10 +13,19 @@ const search = ref(props.filters?.search || '')
 
 watch(search, debounce(function (value) {
     router.get('/users', { search: value }, {
-        preserveState: true, 
+        preserveState: true,
         replace: true
     })
 }, 300))
+
+const deleteUser = (id) => {
+    const msg = 'Are you sure you want to delete this user?';
+    if (confirm(msg)) {
+        router.delete(`/users/${id}`, {
+            preserveScroll: true,
+        })
+    }
+}
 
 </script>
 
@@ -110,7 +119,15 @@ watch(search, debounce(function (value) {
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">Edit</Link>
+                            <div class="flex justify-end gap-3">
+                                <Link :href="`/users/${user.id}/edit`" class="text-indigo-600 hover:text-indigo-900">
+                                    Edit
+                                </Link>
+
+                                <button @click="deleteUser(user.id)" class="text-red-600 hover:text-red-900 cursor-pointer">
+                                    Delete
+                                </button>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
