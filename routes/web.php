@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/users', function () {
     return Inertia::render('Users/IndexPage', [
         'users' => User::query()
+            ->latest()
             ->when(request('search'), fn ($query, $search) => $query->where('name', 'like', "%{$search}%"))
             ->paginate(5)
             ->withQueryString()
@@ -83,7 +84,7 @@ Route::put('/users/{user}', function (User $user) {
 Route::delete('/users/{id}', function ($id) {
     $user = User::findOrFail($id);
     $user->delete();
-    
+
     return redirect()->back();
 });
 
