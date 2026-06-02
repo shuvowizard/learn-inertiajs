@@ -11,6 +11,7 @@ use Inertia\Inertia;
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
 
@@ -109,9 +110,9 @@ Route::middleware(['auth'])->group(function () {
         ]);
     });
 
-    Route::post('/logout', function () {
-        // Perform logout logic here (e.g., Auth::logout())
-        // return redirect('/')->with('message', 'Logged out successfully');
-        dd('Logged out successfully', request('foo'));
-    });
+    // Route::post('/logout', function () {
+    //     // Perform logout logic here (e.g., Auth::logout())
+    //     // return redirect('/')->with('message', 'Logged out successfully');
+    //     dd('Logged out successfully', request('foo'));
+    // });
 });

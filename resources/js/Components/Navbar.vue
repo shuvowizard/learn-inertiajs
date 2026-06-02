@@ -22,7 +22,7 @@ const user = computed(() => {
                 <NavLink href="/users" :active="$page.url.startsWith('/users')">User</NavLink>
                 <NavLink href="/about" :active="$page.url === '/about'">About</NavLink>
                 <NavLink href="/contact" :active="$page.url === '/contact'">Contact</NavLink>
-                <Link href="/logout" method="post" as="button" :data="{ foo: 'bar' }" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</Link>
+                <NavLink href="/logout" method="post" as="button" class="cursor-pointer">Logout</NavLink>
             </div>
         </div>
     </nav>
