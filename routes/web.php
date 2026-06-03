@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -37,12 +38,15 @@ Route::middleware(['auth'])->group(function () {
                     'email' => $user->email,
                 ]),
             'filters' => request()->only(['search']),
+            'can' => [
+                'createUser' => Auth::user()->can('create', User::class),
+            ],
         ]);
     });
 
     Route::get('/users/create', function () {
         return Inertia::render('Users/CreatePage');
-    });
+    })->can('create', User::class);;
 
     Route::post('/users', function () {
         // Validate and create the user

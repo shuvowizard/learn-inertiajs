@@ -7,6 +7,7 @@ import { debounce } from 'lodash'
 const props = defineProps({
     users: Object,
     filters: Object,
+    can: Object,
 })
 
 const search = ref(props.filters?.search || '')
@@ -47,7 +48,7 @@ const deleteUser = (id) => {
                     <h1 class="text-3xl font-bold text-gray-900">Users</h1>
                     
                     <!-- Small Add User Button -->
-                    <Link href="/users/create" class="inline-flex items-center rounded-md bg-indigo-600 px-2.5 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <Link v-if="can.createUser" href="/users/create" class="inline-flex items-center rounded-md bg-indigo-600 px-2.5 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                         <!-- Plus Icon -->
                         <svg class="-ml-0.5 mr-1.5 h-3 w-3" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                             <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
